@@ -12,7 +12,7 @@ def main():
 
     while True:
 
-        screen.Surface.fill(255, 255, 255)
+        pygame.Surface.fill(screen, (255, 255, 255))
 
     # print("Starting Asteroids!")
     # print(f"Screen width: {SCREEN_WIDTH}")
