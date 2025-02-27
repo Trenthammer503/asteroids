@@ -14,7 +14,12 @@ def main():
     fps_clock = pygame.time.Clock()
     dt = 0
 
-    player = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) )
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    Player.containers = (updatable, drawable)
+
+    player = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
 
     while True:
 
@@ -24,12 +29,14 @@ def main():
 
         pygame.Surface.fill(screen, (0, 0, 0))
 
-        player.draw(screen)
+        for i in drawable:
+            i.draw(screen)
 
         pygame.display.flip()
 
-        fps_clock.tick(60)
         dt = fps_clock.tick(60) / 1000
+
+        updatable.update(dt)
 
     # print("Starting Asteroids!")
     # print(f"Screen width: {SCREEN_WIDTH}")
