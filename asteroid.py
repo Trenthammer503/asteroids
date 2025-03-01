@@ -23,7 +23,8 @@ class Asteroid(CircleShape):
         random_angle = random.uniform(20, 50)
         velocity1 = pygame.math.Vector2.rotate(self.velocity, random_angle)
         velocity2 = pygame.math.Vector2.rotate(self.velocity, -random_angle)
-        new_radius = self.radius - ASTEROID_MIN_RADIUS
+        old_radius = self.radius
+        new_radius = old_radius - ASTEROID_MIN_RADIUS
 
         asteroid1 = Asteroid(self.position.x, self.position.y, new_radius)
         asteroid2 = Asteroid(self.position.x, self.position.y, new_radius)
