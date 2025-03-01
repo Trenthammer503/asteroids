@@ -48,9 +48,16 @@ def main():
 
         updatable.update(dt)
 
+        # Collision check for if player is hit by an asteroid, end game.
         for i in asteroids:
             if i.check_collision(player) == False:
                 sys.exit("Game Over!")
+
+        # Collison check for if asteroid is hit by bullet, destroy asteroid.
+        for i in asteroids:
+            for j in shots:
+                if j.check_collision(i) == False:
+                    i.kill()
 
     # print("Starting Asteroids!")
     # print(f"Screen width: {SCREEN_WIDTH}")
