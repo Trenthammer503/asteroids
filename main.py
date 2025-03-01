@@ -57,7 +57,7 @@ def main():
         for i in asteroids:
             for j in shots:
                 if j.check_collision(i) == False:
-                    i.kill()
+                    i.split()
 
     # print("Starting Asteroids!")
     # print(f"Screen width: {SCREEN_WIDTH}")
