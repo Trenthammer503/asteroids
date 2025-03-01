@@ -1,6 +1,7 @@
 # this allows us to use code from
 # the open-source pygame library
 # throughout this file
+import sys
 import pygame # type: ignore
 from constants import *
 from player import Player
@@ -43,6 +44,10 @@ def main():
         dt = fps_clock.tick(60) / 1000
 
         updatable.update(dt)
+
+        for i in asteroids:
+            if i.check_collision(player) == False:
+                sys.exit("Game Over!")
 
     # print("Starting Asteroids!")
     # print(f"Screen width: {SCREEN_WIDTH}")
